@@ -2,11 +2,15 @@ import os
 import csv
 import numpy as np
 
-count = int()
+total_votes = int()
 df = []
 candidates = []
 candidates_unique = []
-khancount = int()
+cand0_count = int()
+cand1_count = int()
+cand2_count = int()
+cand3_count = int()
+votes = []
 
 # create list df
 csvpath = os.path.join("election_data.csv")
@@ -15,6 +19,10 @@ with open(csvpath, newline="") as csvfile:
     next(csvreader)
     for row in csvreader:
         df.append(row)
+
+# count all votes
+    for row in df:
+        total_votes += 1
 
 # create list of candidates
 candidates = [item[2] for item in df]
@@ -25,9 +33,27 @@ for x in candidates:
         candidates_unique.append(x)
 
 #count votes for each candidate
-#candidate 1 - Khan
-for x in candidates:
-    if candidates == 'Khan':
-        khancount += 1
+cand0_count = sum(1 for x in candidates if x == candidates_unique[0])
+cand1_count = sum(1 for x in candidates if x == candidates_unique[1])
+cand2_count = sum(1 for x in candidates if x == candidates_unique[2])
+cand3_count = sum(1 for x in candidates if x == candidates_unique[3])
 
-print(head(candidates))
+#create dictionary
+# votes_list = {candidates_unique[0]: cand0_count,candidates_unique[1]: cand1_count,
+# candidates_unique[3]: cand3_count,candidates_unique[2]: cand2_count,}
+
+#create list of votes
+votes.append(cand0_count)
+votes.append(cand1_count)
+votes.append(cand2_count)
+votes.append(cand3_count)
+
+print(votes)
+print(candidates_unique[votes.index(max(votes))])
+
+# print(votes_list)
+
+# for k,v in votes_list:
+#     if v == max(v):
+#         print(k)
+
