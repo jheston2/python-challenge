@@ -38,10 +38,6 @@ cand1_count = sum(1 for x in candidates if x == candidates_unique[1])
 cand2_count = sum(1 for x in candidates if x == candidates_unique[2])
 cand3_count = sum(1 for x in candidates if x == candidates_unique[3])
 
-#create dictionary
-# votes_list = {candidates_unique[0]: cand0_count,candidates_unique[1]: cand1_count,
-# candidates_unique[3]: cand3_count,candidates_unique[2]: cand2_count,}
-
 #create list of votes
 votes.append(cand0_count)
 votes.append(cand1_count)

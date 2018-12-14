@@ -57,3 +57,17 @@ print(f"{candidates_unique[3]}: {round(cand3_count/total_votes,4)*100}% ({cand3_
 print(f"----------------------")
 print(f"Winner: {winner}")
 print(f"----------------------")
+
+#export results to text file
+file = open("results.txt")
+file.write(f"Election Results")
+file.write(f"----------------------")
+file.write(f"Total Votes: {total_votes}")
+file.write(f"----------------------")
+file.write(f"{candidates_unique[0]}: {round(cand0_count/total_votes,4)*100}% ({cand0_count})")
+file.write(f"{candidates_unique[1]}: {round(cand1_count/total_votes,4)*100}% ({cand1_count})")
+file.write(f"{candidates_unique[2]}: {round(cand2_count/total_votes,4)*100}% ({cand2_count})")
+file.write(f"{candidates_unique[3]}: {round(cand3_count/total_votes,4)*100}% ({cand3_count})")
+file.write(f"----------------------")
+file.write(f"Winner: {winner}")
+file.write(f"----------------------")
